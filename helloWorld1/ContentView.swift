@@ -25,6 +25,7 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                             .frame(width: 300, height: 300)
                             .clipShape(Circle()) // make the image a circle - code found from stack overflow
+            // not able to make the painting fit as a full circle - it's only clipping the middle part of the image and i am not sure on how to fix it
                             .padding()
             
             Button(action: {
@@ -33,6 +34,7 @@ struct ContentView: View {
                 print("the button is working")
             }) {
                 Text("Click Me!")
+                // adjusting appearance
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.blue)
