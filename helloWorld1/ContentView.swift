@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var text = "" // @State property for TextField - initial value of empty string so it can track changes
     var body: some View {
         VStack {
             Text("Hello World, this is Starry Night Over the Rhône by Vincent Van Gogh.")
@@ -22,7 +23,7 @@ struct ContentView: View {
                     // fit to screen
                     .resizable()
             // make painting stay rectangular
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                             .frame(width: 300, height: 300)
                             .clipShape(Circle()) // make the image a circle - code found from stack overflow
             // not able to make the painting fit as a full circle - it's only clipping the middle part of the image and i am not sure on how to fix it
@@ -39,6 +40,10 @@ struct ContentView: View {
                     .padding()
                     .background(Color.blue)
             }
+            TextField("Type Message", text: $text) // show text field on ContentView screen
+                .padding()
+            
+            Text("Your message: \(text)") // Display the input text from user
         }
     }
 }
